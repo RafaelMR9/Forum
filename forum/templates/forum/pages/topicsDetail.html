@@ -1,0 +1,30 @@
+{% extends 'forum/pages/base.html' %}
+{% load static %}
+
+{% block title %}
+Topic Detail
+{% endblock %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'forum/css/pages/topics.css' %}">
+{% endblock %}
+
+{% block content %}  
+<div class="bg-light rounded p-5">
+    <div class="d-flex justify-content-between align-items-center">
+        <h1>{{ topic.title }}</h1>
+        {% if user == topic.author %}
+        <div class="d-flex">
+            <a class="mx-4 btn btn-outline-primary" href="{% url 'forum:topics-update' pk=topic.id %}">Atualizar</a>
+            <form method="POST">
+                {% csrf_token %}
+                <input type="hidden" name="form_type" value="deletePost">
+                <button class="btn btn-outline-danger px-3">Apagar</button>
+            </form>
+        </div>
+    {% endif %}
+    </div>
+    <hr>
+    <p class="mb-5">{{ topic.description }}</p>
+</div>
+{% endblock %}

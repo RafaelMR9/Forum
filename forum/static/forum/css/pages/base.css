@@ -1,0 +1,33 @@
+html, body {
+    height: 100%;
+}
+
+p {
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+.p-content {
+    padding-left: 180px !important;
+    padding-right: 180px !important;
+}
+
+.vh-75 {
+    height: 75vh;
+}
+
+.h-aside {
+    height: calc(100vh - 74.6px) !important;
+}
+
+.mh-content {
+    max-height: calc(100vh - 74.6px) !important;
+}
+
+.item:hover {
+    background-color: rgb(204, 204, 204);
+}
+
+.background {
+    background-color: rgb(194, 194, 194);
+}

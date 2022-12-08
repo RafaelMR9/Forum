@@ -1,0 +1,23 @@
+{% extends 'forum/pages/base.html' %}
+{% load crispy_forms_tags %}  
+{% load static %}
+
+{% block title %}
+Topic Update 
+{% endblock %}
+
+{% block css %}
+{% endblock %}
+
+{% block content %}     
+<div class="d-flex justify-content-center align-items-center h-100">
+    <form action="" method="POST" class="bg-light shadow rounded px-5 py-2">
+        {% csrf_token %}
+        {{ form|crispy }}
+        <div class="d-flex justify-content-between">
+            <button class="btn btn-primary px-4 py-2" type="submit">Atualizar Tópico</button>
+            <a class="btn btn-dark px-5 py-2" href="{% url 'forum:topics-list' %}">Cancelar</a>
+        </div>
+    </form>
+</div>  
+{% endblock %}

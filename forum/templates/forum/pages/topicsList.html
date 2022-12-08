@@ -1,0 +1,21 @@
+{% extends 'forum/pages/base.html' %}
+{% load static %}
+
+{% block title %}
+Home
+{% endblock %}
+
+{% block css %}
+{% endblock %}
+
+{% block content %}   
+<div class="d-flex justify-content-between align-items-center">
+    <h1 class="text-dark mb-4">Tópicos</h1>
+    <a href="{% url 'forum:topics-register' %}" class="btn btn-primary">Criar Tópico</a>
+</div>
+{% for topic in topics %}
+{% include "forum/components/topicBox.html" with topic=topic %}
+{% empty %}
+<p>Ainda Não há Tópicos cadastrados</p>
+{% endfor %}
+{% endblock %}
